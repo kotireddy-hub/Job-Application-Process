@@ -43,6 +43,4 @@ describe('JobMultiApplicationForm', () => {
     // Ensure that the previous step is rendered
     expect(screen.getByText('Personal Information')).toBeInTheDocument();
   });
-
-  // Additional test cases can be added for form submission, error handling, etc.
 });
