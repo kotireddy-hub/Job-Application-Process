@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Button } from 'react-bootstrap';
 import Education from './Education/Education';
 import PersonalInfo from './PersonalInfo/PersonalInfo';
 import WorkExperience from './WorkExperience/WorkExperience';
@@ -22,9 +23,22 @@ const JobMultiApplicationForm = () => {
       phone: '',
       language: '',
     },
-    workExperience: [],
-    education: [],
-    skills: [],
+    workExperience: {
+      company: '',
+      startDate: '',
+      endDate: '',
+      role: '',
+    },
+    education: {
+      institutionName: '',
+      institutionType: '',
+      degree: '',
+      date: '',
+    },
+    skills: {
+      skill: '',
+      skillLevel: ''
+    },
   });
   const [errors, setErrors] = useState({});
 
@@ -35,7 +49,7 @@ const JobMultiApplicationForm = () => {
   };
 
   const handleClickStep = (currentStep) => {
-      setCurrentStep(currentStep);
+    setCurrentStep(currentStep);
   };
 
   const handleBack = () => {
@@ -92,20 +106,20 @@ const JobMultiApplicationForm = () => {
   };
 
   return (
-    <div>
-         <ProgressBar currentStep={currentStep} steps={steps} handleClickStep={handleClickStep}/>
+    <Container>
+      <ProgressBar currentStep={currentStep} steps={steps} handleClickStep={handleClickStep} />
       {renderStep()}
       <div className='btnInfo'>
-        <button onClick={handleBack} disabled={currentStep === 0}>
+        <Button onClick={handleBack} disabled={currentStep === 0}>
           Back
-        </button>
+        </Button>
         {currentStep === steps.length - 1 ? (
-          <button onClick={handleSubmit}>Submit</button>
+          <Button onClick={handleSubmit}>Submit</Button>
         ) : (
-          <button onClick={handleNext}>Next</button>
+          <Button onClick={handleNext}>Next</Button>
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 

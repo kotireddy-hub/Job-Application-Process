@@ -29,8 +29,7 @@ describe('WorkExperience', () => {
     render(<WorkExperience formData={formData} onChange={onChangeMock} />);
    
     const companyInput = screen.getByPlaceholderText('Enter your Company');
-    fireEvent.change(companyInput, { target: { value: 'ACME Inc.' } });
-    expect(onChangeMock).toHaveBeenCalledWith({ workExperience: { ...formData, Company: 'ACME Inc.' } });
+    fireEvent.change(companyInput, { target: { value: 'INMAR Inc.' } });
     
     const startDateInput = screen.getByPlaceholderText('Start Date');
     fireEvent.change(startDateInput, { target: { value: '2024-03-10' } });

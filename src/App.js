@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import JobMultiApplicationForm from './components/JobMultiApplicationForm';
 import Header from './components/HeaderSection/Header';

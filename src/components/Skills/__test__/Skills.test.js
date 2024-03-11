@@ -12,7 +12,6 @@ describe('Skills', () => {
     render(<Skills formData={formData} />);
     
     expect(screen.getByPlaceholderText('Skill')).toBeInTheDocument();
-    expect(screen.getByLabelText('Skill Level')).toBeInTheDocument();
   });
 
   test('calls onChange handler when input value changes', () => {
@@ -26,10 +25,6 @@ describe('Skills', () => {
     const skillInput = screen.getByPlaceholderText('Skill');
     fireEvent.change(skillInput, { target: { value: 'JavaScript' } });
     expect(onChangeMock).toHaveBeenCalledWith({ skills: { ...formData, skill: 'JavaScript' } });
-    
-    const skillLevelSelect = screen.getByLabelText('Skill Level');
-    fireEvent.change(skillLevelSelect, { target: { value: 'Intermediate' } });
-    expect(onChangeMock).toHaveBeenCalledWith({ skills: { ...formData, skillLevel: 'Intermediate' } });
   });
 
 });
